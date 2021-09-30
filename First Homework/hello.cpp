@@ -48,10 +48,10 @@ int main(){
 		random = rand()/((double)RAND_MAX + 1);
         // comment the line below if using a large N, otherwise you'll
         // end up with thousands (millions) of lines in the terminal
-        randomArr[i] = -1*(1/lambda)*log(random);
+        randomArr[i] = -1*(1/lambda)*log(1-random);
 
         cout << random << endl;
-		outFile << random << endl;
+		outFile << randomArr[i] << endl;
 	}
 
 
