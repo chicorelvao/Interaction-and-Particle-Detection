@@ -51,7 +51,7 @@ int main(){
         randomArr[i] = -1*(1/lambda)*log(1-random);
 
         cout << random << endl;
-		outFile << random << endl;
+		outFile << randomArr[i] << endl;
 	}
 
 
