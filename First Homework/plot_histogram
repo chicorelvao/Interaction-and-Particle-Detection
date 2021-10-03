@@ -9,6 +9,9 @@ int plot_histogram(){
 
 	// Let's start by defining the histogram
 	Int_t num_bins = 20;
+	/*From the website:
+	 TH1F(name, title, number of bins, x lower limit, x upper limit)
+	*/
 	TH1F *histogram = new TH1F("h001","Uniformity test",num_bins,0.,1.);
 
 	// And now open the file
@@ -39,7 +42,8 @@ int plot_histogram(){
 	}
 
 	// We must set the maximum and the minimum of the histogram
-	histogram->SetMinimum(0); histogram->SetMaximum(0.1);
+	histogram->SetMinimum(0); 
+	histogram->SetMaximum(0.1);
 	// Finally, let's plot the histogram
 	histogram->SetStats(kFALSE);
 	histogram->Draw();
