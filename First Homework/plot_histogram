@@ -20,6 +20,12 @@ int plot_histogram(){
 	// Fill the histogram with the values from the file
 	Float_t a_number;
 	Int_t entries = 0;
+	/*
+		histogram is a pointer the object of the struct/class TH1F.
+		Fill is a member of this struct. A member is similiar to what a method is to a class.
+		So: histogram->Fill(number) is like calling a method with arguments of a class.
+		-> is used for pointers, and it's short for (*histogram).Fill(a_number)
+	*/
 
 	while (file >> a_number){
 		histogram->Fill(a_number); 
