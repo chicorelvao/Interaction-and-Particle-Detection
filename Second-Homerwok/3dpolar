@@ -21,15 +21,16 @@ def cartesianBase(colArr, latArr):
 
 
 fig = plt.figure()
-threeDim = fig.add_subplot(211,projection='3d')
-histPlot = fig.add_subplot(212)
+figTwo = plt.figure()
+threeDim = fig.add_subplot(111,projection='3d')
+histPlot = figTwo.add_subplot(211)
 
 file = open('random_numbers_angles.dat')
 N = len(file.readlines())
 
 print(N)
 
-dataArr = np.genfromtxt('random_numbers.dat', dtype=None, encoding=None, delimiter=" ")
+dataArr = np.genfromtxt('random_numbers_angles.dat', dtype=None, encoding=None, delimiter=" ")
 
 colatArr = np.zeros(N, float)
 longArr = np.zeros(N, float)
@@ -42,6 +43,7 @@ for item in dataArr:
 	k = k + 1
 
 xyzArr = cartesianBase(colatArr, longArr)
+
 
 threeDim.scatter(xyzArr[:,0], xyzArr[:,1], xyzArr[:,2])
 histPlot.plot(colatArr, longArr, "b.")

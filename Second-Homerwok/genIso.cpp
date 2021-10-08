@@ -16,7 +16,7 @@ int main(){
 
 	// Number of random numbers to generate
 
-	int N = 500;
+	int N = 1000;
 
 	cout << "Number of random pairs: " << N << endl;	
 
@@ -60,8 +60,8 @@ int main(){
 
 	for(int i=0; i<N; i++){
 
-		azimute = (rand()/((double)RAND_MAX + 1))*2*pi;
-		altitude = (rand()/((double)RAND_MAX + 1))*pi;
+		azimute = acos(2*(rand()/((double)RAND_MAX)) - 1);
+		altitude = (rand()/((double)RAND_MAX + 1))*2*pi;
 
 
 		myFile <<  azimute << " " << altitude << endl;
