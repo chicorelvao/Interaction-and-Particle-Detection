@@ -1,0 +1,37 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import mpl_toolkits.mplot3d
+
+fig = plt.figure()
+ax = fig.add_subplot(111,projection='3d')
+
+file = open('random_numbers.dat')
+N = len(file.readlines())
+
+print(N)
+
+array = np.genfromtxt('random_numbers.dat', dtype=None, encoding=None, delimiter=" ")
+
+xArr = np.zeros(N, float)
+yArr = np.zeros(N, float)
+zArr = np.zeros(N, float)
+
+
+k = 0
+
+for i in array:
+	xArr[k] = float(i[0])
+	yArr[k] = float(i[1])
+	zArr[k] = float(i[2])
+	k = k + 1
+
+	
+
+print(xArr)
+ax.plot_surface(xArr, yArr, zArr)
+
+plt.show()
+	
+	
+
+

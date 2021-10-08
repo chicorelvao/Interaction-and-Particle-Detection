@@ -1,0 +1,22 @@
+import numpy as np
+import math
+import random
+
+random.seed(123)
+
+points = 10000
+
+arrayData = np.arange(points)
+
+for x in range(points):
+	rOne = random.uniform(0.0001, 1)
+	rTwo = random.random()
+	Z = (math.sqrt(-2*math.log(rOne)))*math.cos(2*math.pi*rTwo)
+	arrayData[x] = Z
+	print(Z)
+
+
+
+	
+
+	
