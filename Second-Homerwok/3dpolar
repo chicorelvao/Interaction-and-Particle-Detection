@@ -1,0 +1,53 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import mpl_toolkits.mplot3d
+
+
+def cartesianBase(colArr, latArr):
+	size = len(colArr)
+	returnArr = np.zeros((size, 3))
+
+	for i in range(size):
+		x = np.cos(latArr[i])*np.sin(colArr[i])
+		y = np.sin(latArr[i])*np.sin(colArr[i])
+		z = np.cos(colArr[i])
+
+		returnArr[i, 0] = x
+		returnArr[i, 1] = y
+		returnArr[i, 2] = z
+
+	return returnArr
+	
+
+
+fig = plt.figure()
+threeDim = fig.add_subplot(211,projection='3d')
+histPlot = fig.add_subplot(212)
+
+file = open('random_numbers_angles.dat')
+N = len(file.readlines())
+
+print(N)
+
+dataArr = np.genfromtxt('random_numbers.dat', dtype=None, encoding=None, delimiter=" ")
+
+colatArr = np.zeros(N, float)
+longArr = np.zeros(N, float)
+
+k = 0
+
+for item in dataArr:
+	colatArr[k] = float(item[0])
+	longArr[k] = float(item[1])
+	k = k + 1
+
+xyzArr = cartesianBase(colatArr, longArr)
+
+threeDim.scatter(xyzArr[:,0], xyzArr[:,1], xyzArr[:,2])
+histPlot.plot(colatArr, longArr, "b.")
+
+plt.show()
+	
+	
+
+

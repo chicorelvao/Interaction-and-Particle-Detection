@@ -27,9 +27,7 @@ for i in array:
 
 	
 
-print(xArr)
-ax.plot_surface(xArr, yArr, zArr)
-
+ax.scatter(xArr, yArr, zArr)
 plt.show()
 	
 	
