@@ -60,7 +60,7 @@ int main(){
 
 	for(int i=0; i<N; i++){
 
-		azimute = acos(2*(rand()/((double)RAND_MAX)) - 1);
+		azimute = acos(1 - 2*(rand()/((double)RAND_MAX)));
 		altitude = (rand()/((double)RAND_MAX + 1))*2*pi;
 
 

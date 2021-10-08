@@ -22,8 +22,13 @@ def cartesianBase(colArr, latArr):
 
 fig = plt.figure()
 figTwo = plt.figure()
+
+
 threeDim = fig.add_subplot(111,projection='3d')
-histPlot = figTwo.add_subplot(211)
+simplePlot = figTwo.add_subplot(311)
+histPlot = figTwo.add_subplot(312)
+histColat = figTwo.add_subplot(313)
+
 
 file = open('random_numbers_angles.dat')
 N = len(file.readlines())
@@ -45,8 +50,39 @@ for item in dataArr:
 xyzArr = cartesianBase(colatArr, longArr)
 
 
+nbins = 20
+
 threeDim.scatter(xyzArr[:,0], xyzArr[:,1], xyzArr[:,2])
-histPlot.plot(colatArr, longArr, "b.")
+simplePlot.plot(colatArr, longArr, "b.")
+histPlot.hist(longArr, bins=nbins)
+histColat.hist(colatArr, bins=nbins)
+
+simplePlot.title.set_text("Plot of longitude to colatitude")
+histPlot.title.set_text("Longitude distribution")
+histColat.title.set_text("Colatitude distribution")
+
+threeDim.set_xlim3d(-1, 1)
+
+threeDim.set_ylim3d(-1, 1)
+
+threeDim.set_zlim3d(-1, 1)
+
+
+figTwo.tight_layout(pad=1.0)
+
+
+
+#Perfect shpere
+u = np.linspace(0, 2 * np.pi, 100)
+v = np.linspace(0, np.pi, 100)
+x = np.outer(np.cos(u), np.sin(v))
+y = np.outer(np.sin(u), np.sin(v))
+z = np.outer(np.ones(np.size(u)), np.cos(v))
+
+
+threeDim.plot_surface(x, y, z, rstride=4, cstride=4, alpha=0.1)
+
+plt.show()
 
 plt.show()
 	
