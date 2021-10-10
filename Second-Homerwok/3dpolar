@@ -54,17 +54,25 @@ nbins = 20
 
 threeDim.scatter(xyzArr[:,0], xyzArr[:,1], xyzArr[:,2])
 simplePlot.plot(colatArr, longArr, "b.")
-histPlot.hist(longArr, bins=nbins)
-histColat.hist(colatArr, bins=nbins)
+histPlot.hist(longArr, bins=nbins, density=True)
+histColat.hist(colatArr, bins=nbins, density=True)
 
 simplePlot.title.set_text("Plot of longitude to colatitude")
+simplePlot.set_xlabel("Colatitude")
+simplePlot.set_ylabel("Longitude")
+
+
 histPlot.title.set_text("Longitude distribution")
+histPlot.set_xlabel("Longitude")
+histPlot.set_ylabel("Frequency")
+
 histColat.title.set_text("Colatitude distribution")
+histColat.set_xlabel("Colatitude")
+histColat.set_ylabel("Frequency")
+
 
 threeDim.set_xlim3d(-1, 1)
-
 threeDim.set_ylim3d(-1, 1)
-
 threeDim.set_zlim3d(-1, 1)
 
 

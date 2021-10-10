@@ -16,7 +16,7 @@ int main(){
 
 	// Number of random numbers to generate
 
-	int N = 1000;
+	int N = 1500;
 
 	cout << "Number of random pairs: " << N << endl;	
 
