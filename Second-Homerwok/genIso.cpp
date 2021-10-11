@@ -35,7 +35,7 @@ int main(){
 		norm = pow(randomX, 2) + pow(randomY, 2);
 
 		if(norm < 1){
-			randomZ = sqrt(1 - pow(randomX, 2) - pow(randomY, 2));
+			randomZ = pow(-1,i)*sqrt(1 - pow(randomX, 2) - pow(randomY, 2));
 			//Store each array element in the file
 			outFile <<  randomX << " "<< randomY << " " << randomZ<< endl;
 
