@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import mpl_toolkits.mplot3d
 
-
+# Funcao que define uma base cartesiana
 def cartesianBase(colArr, latArr):
 	size = len(colArr)
 	returnArr = np.zeros((size, 3))
@@ -19,7 +19,7 @@ def cartesianBase(colArr, latArr):
 	return returnArr
 	
 
-
+# Plot das diferentes distribuições em 2D e 3D
 fig = plt.figure()
 figTwo = plt.figure()
 
@@ -29,12 +29,13 @@ simplePlot = figTwo.add_subplot(311)
 histPlot = figTwo.add_subplot(312)
 histColat = figTwo.add_subplot(313)
 
-
+# Abertura do ficheiro que contem os pontos com base nas coordenadas de longitide(theta) e coaltidude (phi)
 file = open('random_numbers_angles.dat')
 N = len(file.readlines())
 
 print(N)
 
+# Criacao de um array com toda a data presente no ficheiro
 dataArr = np.genfromtxt('random_numbers_angles.dat', dtype=None, encoding=None, delimiter=" ")
 
 colatArr = np.zeros(N, float)
@@ -49,7 +50,7 @@ for item in dataArr:
 
 xyzArr = cartesianBase(colatArr, longArr)
 
-
+# Numero de bins para os histogramas 
 nbins = 20
 
 threeDim.scatter(xyzArr[:,0], xyzArr[:,1], xyzArr[:,2])
